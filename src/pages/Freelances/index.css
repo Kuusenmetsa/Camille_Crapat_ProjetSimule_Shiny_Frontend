@@ -1,0 +1,119 @@
+.freelances {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+}
+.freelances__title {
+   font-weight: bold;
+}
+.freelances__subtitle {
+   font-weight: bold;
+}
+.cardContainer {
+   display: flex;
+   flex-wrap: wrap;
+}
+@media screen and (max-width: 480px) {
+   .freelances {
+      padding: 40px 20px;
+   }
+   .freelances__title {
+      font-size: 28px;
+      text-align: center;
+   }
+   .freelances__subtitle {
+      font-size: 18px;
+      text-align: center;
+      margin: 60px auto;
+   }
+   .cardContainer {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+   }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+   .freelances {
+      padding: 40px 5%;
+   }
+   .freelances__title {
+      font-size: 30px;
+      text-align: center;
+   }
+   .freelances__subtitle {
+      font-size: 24px;
+      text-align: center;
+      margin: 60px auto;
+   }
+   .cardContainer {
+      width: auto;
+      justify-content: space-between;
+   }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+   .freelances {
+      padding: 40px 5%;
+   }
+   .freelances__title {
+      font-size: 30px;
+      text-align: center;
+   }
+   .freelances__subtitle {
+      font-size: 24px;
+      text-align: center;
+      margin: 60px auto;
+   }
+   .cardContainer {
+      width: auto;
+      column-gap: 10%;
+   }
+}
+@media screen and (min-width: 1025px) and (max-width: 1600px) {
+   .freelances {
+      padding: 70px 9% 40px 9%;
+   }
+   .freelances__title {
+      font-size: 30px;
+   }
+   .freelances__subtitle {
+      font-size: 20px;
+      margin: 75px auto 100px auto;
+   }
+   .cardContainer {
+      width: auto;
+      column-gap: 2.5%;
+   }
+}
+@media screen and (min-width: 1601px) and (max-width: 2560px) {
+   .freelances {
+      padding: 70px 15% 40px 18%;
+   }
+   .freelances__title {
+      font-size: 30px;
+   }
+   .freelances__subtitle {
+      font-size: 24px;
+      margin: 75px auto 100px auto;
+   }
+   .cardContainer {
+      width: auto;
+      column-gap: 4%;
+   }
+}
+@media screen and (min-width: 2561px) {
+   .freelances {
+      padding: 70px 22% 40px 22%;
+   }
+   .freelances__title {
+      font-size: 32px;
+   }
+   .freelances__subtitle {
+      font-size: 24px;
+      margin: 75px auto 100px auto;
+   }
+   .cardContainer {
+      width: auto;
+      column-gap: 5%;
+   }
+}

@@ -1,48 +1,38 @@
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
 
-import colors from '../../utils/style/colors';
+import './index.css';
 
 import { ThemeContext } from '../../utils/context';
-
-const CardStyle = styled.div`
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: space-between;
-   border-radius: 30px;
-   background-color: ${(props) => (props.$isDarkTheme ? `#4F4C6B` : `#f9f9fc`)};
-   height: 334px;
-   width: 339px;
-   padding: 25px 30px;
-   margin-bottom: 40px;
-`;
-
-const ImgStyle = styled.img`
-   width: 148px;
-   height: 148px;
-   border-radius: 148px;
-`;
-
-const LabelStyle = styled.h2`
-   align-self: flex-start;
-   font-size: 22px;
-   color: ${(props) => (props.$isDarkTheme ? `#fff` : colors.primary)};
-`;
-
-const TitleStyle = styled.p`
-   font-size: 25px;
-`;
 
 function Card({ label = 'Développeur', title = 'Jean DUPONT', picture }) {
    const { theme } = useContext(ThemeContext);
    return (
-      <CardStyle $isDarkTheme={theme === 'dark'}>
-         <LabelStyle $isDarkTheme={theme === 'dark'}>{label}</LabelStyle>
-         <ImgStyle src={picture} alt="photo d'un freelance" />
-         <TitleStyle>{title}</TitleStyle>
-      </CardStyle>
+      <div
+         className={
+            theme === 'dark' ? `card purpleBackground` : `card greyBackground`
+         }
+      >
+         <h2
+            className={
+               theme === 'dark'
+                  ? `card__label whiteText`
+                  : `card__label purpleText`
+            }
+         >
+            {label}
+         </h2>
+         <img src={picture} alt="freelance" />
+         <p
+            className={
+               theme === 'dark'
+                  ? `card__name whiteText`
+                  : `card__name blackText`
+            }
+         >
+            {title}
+         </p>
+      </div>
    );
 }
 

@@ -1,72 +1,13 @@
 import { useParams, Link } from 'react-router-dom';
 import { useContext } from 'react';
-import styled from 'styled-components';
 
-import colors from '../../utils/style/colors';
+import './index.css';
 
-import Loader from '../../utils/style/loader';
+import Loader from '../../components/Loader';
 
 import { ThemeContext } from '../../utils/context';
 import { SurveyContext } from '../../utils/context';
 import { useFetch } from '../../utils/hook';
-
-const SurveyStyle = styled.div`
-   width: 100%;
-   min-height: 83vh;
-   display: flex;
-   flex-direction: column;
-   justify-content: flex-start;
-   align-items: center;
-   padding-top: 50px;
-`;
-
-const ContainerStyle = styled.div`
-   width: 55%;
-   height: 65vh;
-   display: flex;
-   flex-direction: column;
-   justify-content: space-around;
-   align-items: center;
-   text-align: center;
-`;
-
-const TitleStyle = styled.h2`
-   font-size: 25px;
-   font-weight: bold;
-   border-bottom: 2px solid ${colors.primary};
-`;
-
-const TextStyle = styled.p`
-   font-size: 20px;
-   font-weight: normal;
-`;
-
-const ContainerRowStyle = styled.div`
-   width: 600px;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   ${(props) => props.$link && `width: 250px;`}
-`;
-
-const ButtonQuestionStyle = styled.button`
-   height: 95px;
-   width: 290px;
-   border-radius: 30px;
-   background-color: ${(props) => (props.$isDarkTheme ? `#4F4C6B` : `#f9f9fc`)};
-   border: none;
-   font-size: 25px;
-   font-weight: bold;
-   &:active {
-      border: 2px solid ${colors.primary};
-   }
-   ${(props) => props.$select && `border: 2px solid ${colors.primary};`};
-   cursor: pointer;
-`;
-
-const ButtonChangeQuestion = styled(Link)`
-   font-size: 18px;
-`;
 
 function Survey() {
    const { theme } = useContext(ThemeContext);
@@ -83,7 +24,11 @@ function Survey() {
    const { surveyData } = data;
 
    if (error) {
-      return <span>une erreur est survenu</span>;
+      return (
+         <span className={theme === 'dark' ? `whiteText` : `blackText`}>
+            une erreur est survenu
+         </span>
+      );
    }
 
    const saveReply = (answer) => {
@@ -91,47 +36,83 @@ function Survey() {
    };
 
    return (
-      <SurveyStyle>
-         <ContainerStyle>
-            <TitleStyle>Question {questionNumber}</TitleStyle>
+      <div
+         className={
+            theme === 'dark'
+               ? `survey blueBackground`
+               : `survey whiteBackground`
+         }
+      >
+         <div className="surveyContainer">
+            <h2
+               className={
+                  theme === 'dark'
+                     ? `surveyContainer__questionNumber whiteText`
+                     : `surveyContainer__questionNumber blackText`
+               }
+            >
+               Question {questionNumber}
+            </h2>
             {isLoading ? (
                <Loader />
             ) : (
-               <TextStyle>{surveyData && surveyData[questionNumber]}</TextStyle>
+               <p
+                  className={
+                     theme === 'dark'
+                        ? `surveyContainer__question whiteText`
+                        : `surveyContainer__question blackText`
+                  }
+               >
+                  {surveyData && surveyData[questionNumber]}
+               </p>
             )}
 
-            <ContainerRowStyle>
-               <ButtonQuestionStyle
-                  $select={answers[questionNumber] === true}
-                  $isDarkTheme={theme === 'dark'}
+            <div className="surveyContainer__answers">
+               <div
+                  className={
+                     answers[questionNumber] === true
+                        ? theme === 'dark'
+                           ? `select purpleBackground whiteText surveyContainer__answer`
+                           : `select greyBackground blackText surveyContainer__answer`
+                        : theme === 'dark'
+                        ? `purpleBackground whiteText surveyContainer__answer`
+                        : `greyBackground blackText surveyContainer__answer`
+                  }
                   onClick={() => saveReply(true)}
                >
                   Oui
-               </ButtonQuestionStyle>
-               <ButtonQuestionStyle
-                  $select={answers[questionNumber] === false}
-                  $isDarkTheme={theme === 'dark'}
+               </div>
+               <div
+                  className={
+                     answers[questionNumber] === false
+                        ? theme === 'dark'
+                           ? `select purpleBackground whiteText surveyContainer__answer`
+                           : `select greyBackground blackText surveyContainer__answer`
+                        : theme === 'dark'
+                        ? `purpleBackground whiteText surveyContainer__answer`
+                        : `greyBackground blackText surveyContainer__answer`
+                  }
                   onClick={() => saveReply(false)}
                >
                   Non
-               </ButtonQuestionStyle>
-            </ContainerRowStyle>
-            <ContainerRowStyle $link>
-               <ButtonChangeQuestion to={`/survey/${prevQuestionNumber}`}>
-                  Précedente
-               </ButtonChangeQuestion>
+               </div>
+            </div>
+            <div
+               className={
+                  theme === 'dark'
+                     ? `surveyContainer__changeQuestion whiteText`
+                     : `surveyContainer__changeQuestion blackText`
+               }
+            >
+               <Link to={`/survey/${prevQuestionNumber}`}>Précedente</Link>
                {surveyData && surveyData[questionNumberInt + 1] ? (
-                  <ButtonChangeQuestion to={`/survey/${nextQuestionNumber}`}>
-                     Suivante
-                  </ButtonChangeQuestion>
+                  <Link to={`/survey/${nextQuestionNumber}`}>Suivante</Link>
                ) : (
-                  <ButtonChangeQuestion to="/results">
-                     Résultats
-                  </ButtonChangeQuestion>
+                  <Link to="/results">Résultats</Link>
                )}
-            </ContainerRowStyle>
-         </ContainerStyle>
-      </SurveyStyle>
+            </div>
+         </div>
+      </div>
    );
 }
 

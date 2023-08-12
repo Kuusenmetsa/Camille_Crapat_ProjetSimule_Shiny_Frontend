@@ -1,0 +1,74 @@
+.survey {
+   width: 100%;
+   min-height: 83vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+   padding-top: 50px;
+}
+.surveyContainer {
+   width: 55%;
+   height: 65vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+   text-align: center;
+}
+.surveyContainer__questionNumber {
+   font-size: 25px;
+   font-weight: bold;
+   border-bottom: 2px solid;
+}
+.surveyContainer__question {
+   font-size: 20px;
+   font-weight: normal;
+}
+.surveyContainer__answers {
+   width: 600px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.surveyContainer__answer {
+   height: 95px;
+   width: 290px;
+   border-radius: 30px;
+   border: none;
+   font-size: 25px;
+   font-weight: bold;
+   cursor: pointer;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.surveyContainer__answer:active {
+   border: 2px solid;
+}
+.surveyContainer__answer.select {
+   border: 2px solid #5843e4;
+}
+.surveyContainer__changeQuestion {
+   width: 250px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.surveyContainer__changeQuestion a {
+   font-size: 18px;
+   text-decoration: underline;
+}
+
+@media screen and (max-width: 480px) {
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+}
+@media screen and (min-width: 1025px) and (max-width: 1600px) {
+}
+@media screen and (min-width: 1601px) and (max-width: 2560px) {
+}
+@media screen and (min-width: 2561px) {
+}

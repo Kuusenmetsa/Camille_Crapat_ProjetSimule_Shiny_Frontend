@@ -1,0 +1,68 @@
+.container {
+   text-align: center;
+}
+.switch {
+   position: relative;
+   width: 75px;
+   display: inline-block;
+   text-align: left;
+}
+.switch__label {
+   display: block;
+   overflow: hidden;
+   cursor: pointer;
+   border: 0 solid #bbb;
+   border-radius: 20px;
+}
+.switch__inner {
+   display: block;
+   width: 200%;
+   margin-left: -100%;
+   transition: margin-left 0.3s ease-in 0s;
+}
+.switch__inner.dark {
+   margin-left: 0;
+}
+.switch__inner::after,
+.switch__inner::before {
+   float: left;
+   width: 50%;
+   height: 36px;
+   padding: 0;
+   line-height: 36px;
+   color: #fff;
+   font-weight: bold;
+   box-sizing: border-box;
+}
+.switch__inner::before {
+   content: '🌛';
+   padding-left: 10px;
+   background-color: #000;
+   color: #fff;
+}
+.switch__inner::after {
+   content: '☀️';
+   padding-right: 10px;
+   background-color: #ffc726;
+   color: #fff;
+   text-align: right;
+}
+.switch__button {
+   display: block;
+   width: 24px;
+   margin: 5px;
+   background: #fff;
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   right: 40px;
+   border: 0 solid #bbb;
+   border-radius: 20px;
+   transition: all 0.3s ease-in 0s;
+}
+.switch__button.dark {
+   right: 0;
+}
+.switch__checkbox {
+   display: none;
+}

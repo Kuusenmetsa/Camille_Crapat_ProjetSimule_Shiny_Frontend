@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+import './index.css';
+
 import Header from './components/Header';
 import Home from './pages/Home';
 import Freelances from './pages/Freelances';
@@ -12,15 +14,12 @@ import Error from './pages/Error';
 import { ThemeProvider } from './utils/context';
 import { SurveyProvider } from './utils/context';
 
-import GlobalStyle from './utils/style/base';
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
    <React.StrictMode>
       <ThemeProvider>
          <SurveyProvider>
             <Router>
-               <GlobalStyle />
                <Header />
                <Routes>
                   <Route path="/" element={<Home />} />

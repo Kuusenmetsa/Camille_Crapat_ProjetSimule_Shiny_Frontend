@@ -1,39 +1,12 @@
-import styled from 'styled-components';
 import { useContext } from 'react';
 
 import Card from '../../components/Card';
-import Loader from '../../utils/style/loader';
+import Loader from '../../components/Loader';
+
+import './index.css';
 
 import { ThemeContext } from '../../utils/context';
 import { useFetch } from '../../utils/hook';
-
-const FreelanceStyle = styled.div`
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;
-   align-items: center;
-   padding: 70px 0 40px 0;
-`;
-
-const FreelanceTitleStyle = styled.h1`
-   font-size: 30px;
-   font-weight: bold;
-`;
-
-const FreelanceTextStyle = styled.h2`
-   color: ${(props) => (props.$isDarkTheme ? `#fff` : `#8186a0`)};
-   font-size: 20px;
-   font-weight: bold;
-   margin: 75px auto 100px auto;
-`;
-
-const ContainerCardStyle = styled.div`
-   width: 48%;
-   display: flex;
-   justify-content: space-between;
-   align-items: space-between;
-   flex-wrap: wrap;
-`;
 
 function Freelances() {
    const { theme } = useContext(ThemeContext);
@@ -48,15 +21,35 @@ function Freelances() {
    }
 
    return (
-      <FreelanceStyle>
-         <FreelanceTitleStyle>Trouvez votre prestataire</FreelanceTitleStyle>
-         <FreelanceTextStyle $isDarkTheme={theme === 'dark'}>
+      <div
+         className={
+            theme === 'dark'
+               ? `freelances blueBackground`
+               : ` freelances whiteBackground`
+         }
+      >
+         <h1
+            className={
+               theme === 'dark'
+                  ? `freelances__title whiteText`
+                  : `freelances__title blackText`
+            }
+         >
+            Trouvez votre prestataire
+         </h1>
+         <h2
+            className={
+               theme === 'dark'
+                  ? `freelances__subtitle whiteText`
+                  : `freelances__subtitle greyText`
+            }
+         >
             Chez Shiny nous réunissons les meilleurs profils pour vous
-         </FreelanceTextStyle>
+         </h2>
          {isLoading ? (
             <Loader />
          ) : (
-            <ContainerCardStyle>
+            <div className="cardContainer">
                {freelancersList &&
                   freelancersList.map((profile) => (
                      <Card
@@ -66,9 +59,9 @@ function Freelances() {
                         picture={profile.picture}
                      />
                   ))}
-            </ContainerCardStyle>
+            </div>
          )}
-      </FreelanceStyle>
+      </div>
    );
 }
 
