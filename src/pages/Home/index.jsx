@@ -29,7 +29,7 @@ function Home() {
                </h2>
                <Link to="/survey/1">Faire le test</Link>
             </div>
-            <div>
+            <div className="home__rightContainer">
                <img src={home} alt="illustration" />
             </div>
          </div>

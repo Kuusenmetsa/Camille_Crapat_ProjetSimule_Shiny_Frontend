@@ -26,7 +26,7 @@
 }
 @media screen and (max-width: 480px) {
    .home .home__background {
-      height: 790px;
+      min-height: 84vh;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
@@ -41,6 +41,7 @@
       text-align: center;
    }
    .home .home__leftContainer a {
+      width: 200px;
       margin: 40px auto 0 auto;
    }
    .home .home__rightContainer {
@@ -50,7 +51,7 @@
 }
 @media screen and (min-width: 481px) and (max-width: 768px) {
    .home .home__background {
-      height: 790px;
+      min-height: 84vh;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
@@ -74,7 +75,7 @@
 }
 @media screen and (min-width: 769px) and (max-width: 1024px) {
    .home .home__background {
-      height: 600px;
+      min-height: 84vh;
       justify-content: space-between;
       align-items: center;
       padding: 0 100px;
@@ -97,7 +98,7 @@
       padding: 70px 33px 0 33px;
    }
    .home .home__background {
-      height: 824px;
+      min-height: 84vh;
       justify-content: space-between;
       align-items: center;
       padding: 0 100px;
@@ -120,7 +121,7 @@
       padding: 70px 33px 0 33px;
    }
    .home .home__background {
-      height: 824px;
+      min-height: 84vh;
       justify-content: space-between;
       align-items: center;
       padding: 0 100px;
@@ -143,7 +144,7 @@
       padding: 70px 33px 0 33px;
    }
    .home .home__background {
-      height: 824px;
+      min-height: 84vh;
       justify-content: space-between;
       align-items: center;
       padding: 0 100px;

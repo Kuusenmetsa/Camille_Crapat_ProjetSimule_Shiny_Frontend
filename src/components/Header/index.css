@@ -104,10 +104,10 @@ ul {
       height: 45px;
    }
 }
-@media screen and (max-width: 768px) {
-}
 @media screen and (min-width: 769px) and (max-width: 1024px) {
    header {
+      width: 100%;
+      overflow: hidden;
       height: auto;
       min-height: 16vh;
       padding: 0 33px;
@@ -118,11 +118,6 @@ ul {
    nav {
       width: 57%;
       height: 70px;
-   }
-   ul {
-      position: absolute;
-      width: 100%;
-      flex-direction: column;
    }
    .menu__burger {
       display: none;
@@ -139,7 +134,7 @@ ul {
    }
    nav {
       height: 70px;
-      width: 38%;
+      width: 40%;
    }
    .menu__burger {
       display: none;
@@ -155,11 +150,6 @@ ul {
       height: 70px;
       width: 28%;
    }
-   ul {
-      position: absolute;
-      width: 100%;
-      flex-direction: column;
-   }
    .menu__burger {
       display: none;
    }
@@ -173,11 +163,6 @@ ul {
    nav {
       height: 70px;
       width: 25%;
-   }
-   ul {
-      position: absolute;
-      width: 100%;
-      flex-direction: column;
    }
    .menu__burger {
       display: none;

@@ -9,17 +9,18 @@ function Switch() {
    return (
       <div className="container">
          <div className="switch">
-            <input
-               type="checkbox"
-               checked={theme}
-               onChange={() => toggleTheme()}
-               className="switch__checkbox"
-            />
             <label
-               htmlFor="test"
+               htmlFor="switchInput"
                onClick={() => toggleTheme()}
                className="switch__label"
             >
+               <input
+                  type="checkbox"
+                  checked={theme}
+                  onChange={() => toggleTheme()}
+                  className="switch__checkbox"
+                  name="switchInput"
+               />
                <span
                   className={
                      theme === 'dark' ? `switch__inner dark` : `switch__inner`
