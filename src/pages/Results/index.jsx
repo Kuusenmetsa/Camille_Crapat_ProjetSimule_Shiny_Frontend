@@ -28,7 +28,7 @@ function Results() {
    const questionsString = formatResult(answers);
 
    const { data, isLoading, error } = useFetch(
-      `https://api-shiny.camille-crapat.fr/results?${questionsString}`
+      `http://localhost:8000/results?${questionsString}`,
    );
 
    const { resultsData } = data;

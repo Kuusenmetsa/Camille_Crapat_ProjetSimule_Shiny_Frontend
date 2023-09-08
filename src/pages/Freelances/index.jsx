@@ -11,7 +11,7 @@ import { useFetch } from '../../utils/hook';
 function Freelances() {
    const { theme } = useContext(ThemeContext);
    const { data, isLoading, error } = useFetch(
-      'https://api-shiny.camille-crapat.fr/freelances'
+      'http://localhost:8000/freelances',
    );
 
    const { freelancersList } = data;

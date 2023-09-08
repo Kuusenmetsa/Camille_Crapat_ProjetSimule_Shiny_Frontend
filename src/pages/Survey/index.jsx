@@ -12,9 +12,7 @@ import { useFetch } from '../../utils/hook';
 function Survey() {
    const { theme } = useContext(ThemeContext);
    const { answers, saveAnswers } = useContext(SurveyContext);
-   const { data, isLoading, error } = useFetch(
-      'https://api-shiny.camille-crapat.fr/survey'
-   );
+   const { data, isLoading, error } = useFetch('http://localhost:8000/survey');
 
    let { questionNumber } = useParams();
    let questionNumberInt = parseInt(questionNumber);
