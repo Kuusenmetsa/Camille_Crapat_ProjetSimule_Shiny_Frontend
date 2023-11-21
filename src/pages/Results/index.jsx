@@ -28,7 +28,7 @@ function Results() {
    const questionsString = formatResult(answers);
 
    const { data, isLoading, error } = useFetch(
-      `http://localhost:8000/results?${questionsString}`,
+      `http://localhost:8000/api/result?${questionsString}`,
    );
 
    const { resultsData } = data;
