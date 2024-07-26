@@ -12,7 +12,9 @@ import { useFetch } from '../../utils/hook';
 function Survey() {
    const { theme } = useContext(ThemeContext);
    const { answers, saveAnswers } = useContext(SurveyContext);
-   const { data, isLoading, error } = useFetch('http://localhost:8000/survey');
+   const { data, isLoading, error } = useFetch(
+      'http://localhost:8000/api/survey',
+   );
 
    let { questionNumber } = useParams();
    let questionNumberInt = parseInt(questionNumber);
@@ -61,7 +63,7 @@ function Survey() {
                         : `surveyContainer__question blackText`
                   }
                >
-                  {surveyData && surveyData[questionNumber]}
+                  {surveyData && surveyData[questionNumber - 1].survey}
                </p>
             )}
 
@@ -103,7 +105,7 @@ function Survey() {
                }
             >
                <Link to={`/survey/${prevQuestionNumber}`}>Précedente</Link>
-               {surveyData && surveyData[questionNumberInt + 1] ? (
+               {surveyData && surveyData[questionNumberInt] ? (
                   <Link to={`/survey/${nextQuestionNumber}`}>Suivante</Link>
                ) : (
                   <Link to="/results">Résultats</Link>

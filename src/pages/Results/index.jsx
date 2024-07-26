@@ -31,7 +31,7 @@ function Results() {
       `http://localhost:8000/api/result?${questionsString}`,
    );
 
-   const { resultsData } = data;
+   const { resultsData, errorServer } = data;
 
    return (
       <div
@@ -67,6 +67,24 @@ function Results() {
                   }
                >
                   Une erreur est survenu !
+               </div>
+            </div>
+         ) : errorServer ? (
+            <div
+               className={
+                  theme === 'dark'
+                     ? `results__background purpleBackground`
+                     : `results__background greyBackground`
+               }
+            >
+               <div
+                  className={
+                     theme === 'dark'
+                        ? `results__errors whiteText`
+                        : `results__errors blackText`
+                  }
+               >
+                  {errorServer}
                </div>
             </div>
          ) : (

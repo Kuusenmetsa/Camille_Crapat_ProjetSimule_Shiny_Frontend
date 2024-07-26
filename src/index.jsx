@@ -11,8 +11,7 @@ import Survey from './pages/Survey';
 import Results from './pages/Results';
 import Error from './pages/Error';
 
-import { ThemeProvider } from './utils/context';
-import { SurveyProvider } from './utils/context';
+import { ThemeProvider, SurveyProvider } from './utils/context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -31,5 +30,5 @@ root.render(
             </Router>
          </SurveyProvider>
       </ThemeProvider>
-   </React.StrictMode>
+   </React.StrictMode>,
 );

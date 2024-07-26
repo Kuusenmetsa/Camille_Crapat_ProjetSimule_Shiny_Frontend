@@ -10,8 +10,9 @@ import { useFetch } from '../../utils/hook';
 
 function Freelances() {
    const { theme } = useContext(ThemeContext);
+
    const { data, isLoading, error } = useFetch(
-      'http://localhost:8000/freelances',
+      'http://localhost:8000/api/freelances',
    );
 
    const { freelancersList } = data;
@@ -54,9 +55,9 @@ function Freelances() {
                   freelancersList.map((profile) => (
                      <Card
                         key={profile.id}
-                        label={profile.job}
-                        title={profile.name}
-                        picture={profile.picture}
+                        label={profile.dev_type}
+                        title={`${profile.firstname} ${profile.lastname}`}
+                        picture={profile.link_img}
                      />
                   ))}
             </div>
